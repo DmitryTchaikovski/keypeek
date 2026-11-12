@@ -402,6 +402,10 @@ impl DeviceConnectionManager {
             if let ConnectionSpec::Via { json_path, .. } = &mut spec {
                 *json_path = path.to_string();
             }
+            #[cfg(feature = "kanata")]
+            if let ConnectionSpec::Kanata { config_path, .. } = &mut spec {
+                *config_path = path.to_string();
+            }
         }
 
         self.last_spec = Some(spec.clone());
