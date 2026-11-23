@@ -332,6 +332,11 @@ pub enum ConnectionSpec {
         pid: u16,
         transport: ZmkTransportConfig,
     },
+    #[cfg(feature = "kanata")]
+    Kanata {
+        config_path: String,
+        address: String,
+    },
 }
 
 #[cfg(test)]
